@@ -2,13 +2,18 @@ import { Router } from "express";
 import { ensureValidToken } from "../middlewares/login/loginMiddleware";
 import { ensureEmailContact } from "../middlewares/contact/ensureEmailContact.middleware";
 import { ensureNumberContact } from "../middlewares/contact/ensureNumberContact.middleware";
-import { createContactsController } from "../controllers/contact";
+import {
+  createContactsController,
+  deleteContactController,
+  listContactController,
+  updateContactController,
+} from "../controllers/contact";
 import { ensureDataIsValidMiddleware } from "../middlewares/ensureValidData.middleware";
-import { contactsSchema } from "../schemas/contacts";
+import { contactsSchema, updateContactSchema } from "../schemas/contacts";
 
-const contacRoutes: Router = Router();
+const contactsRoutes: Router = Router();
 
-contacRoutes.post(
+contactsRoutes.post(
   "",
   ensureValidToken,
   ensureEmailContact,
@@ -17,4 +22,15 @@ contacRoutes.post(
   createContactsController
 );
 
-export { contacRoutes };
+contactsRoutes.get("", listContactController);
+
+contactsRoutes.patch(
+  "/:id",
+  ensureValidToken,
+  ensureDataIsValidMiddleware(updateContactSchema),
+  updateContactController
+);
+
+contactsRoutes.delete("/:id", ensureValidToken, deleteContactController);
+
+export { contactsRoutes };

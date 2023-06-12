@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ILogin } from "../interfaces/login";
-import { createLoginService } from "../services/login";
+import { createLoginService } from "../services/login/login";
 
 async function createLoginController(
   req: Request,

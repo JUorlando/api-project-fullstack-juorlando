@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createUsersService } from "../services/users";
+import { createUsersService } from "../services/users/createUsers.service";
 
 async function createUsersController(
   req: Request,
