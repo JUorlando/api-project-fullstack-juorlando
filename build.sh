@@ -1,4 +1,6 @@
-set -o errexist
+#!/usr/bin/env bash
+# exit on error
+set -o errexit
 
 yarn
 yarn build
