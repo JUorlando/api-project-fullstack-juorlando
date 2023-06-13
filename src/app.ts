@@ -5,12 +5,12 @@ import { loginRoutes } from "./routes/login";
 import { usersRoutes } from "./routes/users";
 import { contactsRoutes } from "./routes/contac";
 import swaggerUi from "swagger-ui-express";
-import docsSwagger from "../swagger.json"
+import swaggerDocs from "./swagger.json";
 
 const app = express();
 app.use(express.json());
 
-app.use("/documentation", swaggerUi.serve, swaggerUi.setup(docsSwagger))
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use("/users", usersRoutes);
 app.use("/login", loginRoutes);
