@@ -10,6 +10,7 @@ import { ensureDataIsValidMiddleware } from "../middlewares/ensureValidData.midd
 import { updateUsersSchema, usersSchema } from "../schemas/users";
 import { ensureNumberUser } from "../middlewares/users/ensureNumberUser.middleware";
 import { ensureValidToken } from "../middlewares/login/loginMiddleware";
+import { ensureUserExists } from "../middlewares/users/ensureUserExist.middleware";
 
 const usersRoutes: Router = Router();
 
@@ -27,11 +28,17 @@ usersRoutes.patch(
   "/:id",
   ensureValidToken,
   ensureEmailUser,
+  ensureUserExists,
   ensureDataIsValidMiddleware(updateUsersSchema),
   ensureNumberUser,
   updateUsersController
 );
 
-usersRoutes.delete("/:id", ensureValidToken, deleteUsersController);
+usersRoutes.delete(
+  "/:id",
+  ensureValidToken,
+  ensureUserExists,
+  deleteUsersController
+);
 
 export { usersRoutes };
