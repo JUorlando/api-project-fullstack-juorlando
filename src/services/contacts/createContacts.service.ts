@@ -1,8 +1,8 @@
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../../data-source";
 import { Repository } from "typeorm";
-import { Contacts } from "../entities";
-import { contactsSchemaReturn } from "../schemas/contacts";
-import { IContacts, IContactsReturn } from "../interfaces/contact";
+import { Contacts } from "../../entities";
+import { contactsSchemaReturn } from "../../schemas/contacts";
+import { IContacts, IContactsReturn } from "../../interfaces/contact";
 
 async function createContactsService(
   data: IContacts

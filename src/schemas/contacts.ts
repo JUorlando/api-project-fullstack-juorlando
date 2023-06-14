@@ -14,4 +14,17 @@ const contactsSchemaReturn = z.object({
   phone: z.string().max(13),
 });
 
-export { contactsSchema, contactsSchemaReturn };
+const updateContactSchema = z.object({
+  name: z.string().max(120).optional(),
+  email: z.string().email().max(60).optional(),
+  phone: z.string().max(13).optional(),
+});
+
+const retrieveContactsSchema = contactsSchemaReturn.array();
+
+export {
+  contactsSchema,
+  contactsSchemaReturn,
+  updateContactSchema,
+  retrieveContactsSchema,
+};

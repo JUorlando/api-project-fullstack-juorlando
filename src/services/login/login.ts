@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
-import { AppError } from "../errors";
-import { ILogin } from "../interfaces/login";
-import { User } from "../entities";
+import { AppError } from "../../errors";
+import { ILogin } from "../../interfaces/login";
+import { User } from "../../entities";
 import { compare } from "bcryptjs";
-import { AppDataSource } from "../data-source";
+import { AppDataSource } from "../../data-source";
 import { Repository } from "typeorm";
 import "dotenv/config";
 
