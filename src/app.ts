@@ -4,11 +4,14 @@ import express from "express";
 import { loginRoutes } from "./routes/login";
 import { usersRoutes } from "./routes/users";
 import { contactsRoutes } from "./routes/contac";
+import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocs from "./swagger.json";
 
 const app = express();
 app.use(express.json());
+
+app.use(cors())
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
