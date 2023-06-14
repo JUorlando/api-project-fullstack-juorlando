@@ -23,7 +23,7 @@ contactsRoutes.post(
   createContactsController
 );
 
-contactsRoutes.get("", listContactController);
+contactsRoutes.get("", ensureValidToken, listContactController);
 
 contactsRoutes.patch(
   "/:id",
