@@ -1,4 +1,4 @@
-Comandos
+Comandos para rodar a api
 Comece rodando o comando $ yarn em seu teminal git para instalar todas as dependencias
 
 Scripts
