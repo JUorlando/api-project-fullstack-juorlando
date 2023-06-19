@@ -33,8 +33,8 @@ class User {
   @CreateDateColumn({ type: "date" })
   createdAt: string;
 
-  @OneToMany(() => Contacts, (contacts) => contacts.user)
-  contacts: Array<Contacts>;
+  @OneToMany(() => Contacts, (contact) => contact.user)
+  contact: Array<Contacts>;
 
   @BeforeInsert()
   @BeforeUpdate()
